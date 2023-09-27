@@ -13,7 +13,7 @@ def energy_predict():
     X = train_df.drop(columns='target')
 
     np_linear_reg = NpLinearRegression()
-    np_linear_reg.fit(X.to_numpy(), y.to_numpy(), lr=0.1)
+    np_linear_reg.fit(X.to_numpy(), y.to_numpy(), lr=0.1, it=10000)
     # y_hat = np_linear_reg.predict(t)
     # error_report(y, y_hat)
 
