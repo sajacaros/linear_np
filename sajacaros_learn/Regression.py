@@ -29,9 +29,18 @@ class NpLinearRegression(NpModel):
     def fit(self, X: np.ndarray, y: np.ndarray, lr: float = 0.1, it: int = 1000) -> None:
         self._lr = lr
         X_b = np.append(X, np.ones((X.shape[0], 1)), axis=1)
-        self._coef = np.random.rand(X_b.shape[1])  # features + b
+        self._coef = np.ones(X_b.shape[1]) + np.random.rand(X_b.shape[1])/10  # features + b
 
-        print(X_b.shape, y.shape, self._coef)
+        y_hat = np.sum(X_b*self._coef, axis=1)
+        mse_score = mean_squared_error(y, y_hat)
+        print(f'mse : {mse_score}')
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         pass
+
+# todo
+# mse check
+# test code로 만들기
+# a = np.array([1,3,5,20])
+# b = np.array([5,3,10,1])
+# print(mean_squared_error(a,b))

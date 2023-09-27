@@ -10,7 +10,7 @@ def load_mission_dataset():
 def energy_predict():
     train_df, test_df = load_mission_dataset()
     y = train_df['target']
-    X = train_df.drop(columns='target')
+    X = train_df.drop(columns=['target', 'num', 'date_time'])
 
     np_linear_reg = NpLinearRegression()
     np_linear_reg.fit(X.to_numpy(), y.to_numpy(), lr=0.1, it=10000)
