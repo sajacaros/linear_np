@@ -8,7 +8,7 @@ class NpModel(metaclass=ABCMeta):
         print(f"create instance for 'class {self.__class__.__name__}'")
 
     @abstractmethod
-    def fit(self, X: np.ndarray, y: np.ndarray) -> None:
+    def fit(self, X: np.ndarray, y: np.ndarray, lr: float) -> None:
         pass
 
     @abstractmethod
@@ -20,8 +20,8 @@ class NpLinearRegression(NpModel):
     def __init__(self):
         super().__init__()
 
-    def predict(self):
+    def fit(self, X: np.ndarray, y: np.ndarray, lr: float = 0.1) -> None:
         pass
 
-    def fit(self):
+    def predict(self, X: np.ndarray) -> np.ndarray:
         pass
