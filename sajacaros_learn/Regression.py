@@ -21,7 +21,9 @@ class NpLinearRegression(NpModel):
         super().__init__()
 
     def fit(self, X: np.ndarray, y: np.ndarray, lr: float = 0.1) -> None:
-        pass
+        print(X)
+        print(y)
+        print(lr)
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         pass
